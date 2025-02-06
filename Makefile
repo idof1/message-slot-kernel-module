@@ -1,16 +1,19 @@
 obj-m := message_slot.o
+
 KDIR := /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
 
-all: module programs
-
-module:
+all:
 	$(MAKE) -C $(KDIR) M=$(PWD) modules
 
-programs:
-	gcc -O3 -Wall -std=c11 -o message_sender message_sender.c
-	gcc -O3 -Wall -std=c11 -o message_reader message_reader.c
+install:
+	sudo insmod message_slot.ko
+	sudo mknod /dev/slot0 c 235 0
+	sudo chmod 666 /dev/slot0
+
+uninstall:
+	sudo rm -f /dev/slot0
+	sudo rmmod message_slot
 
 clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) clean
-	rm -f message_sender message_reader
