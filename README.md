@@ -19,8 +19,7 @@ This project implements a Linux kernel module that provides an inter-process com
 | `message_sender.c` | User-space program to send messages. |
 | `message_reader.c` | User-space program to read messages. |
 | `Makefile` | Compilation and installation script. |
-| `test.sh` | Automated test script. |
-| `LICENSE` | MIT License file. |
+| `run_tests.sh` | Automated test script. |
 
 ## Compilation & Installation
 
@@ -58,6 +57,6 @@ sudo rmmod message_slot
 ## Running Tests
 A script is provided to test the module automatically:
 ```bash
-./test.sh
+./run_tests.sh
 ```
 
