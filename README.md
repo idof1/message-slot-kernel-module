@@ -61,6 +61,3 @@ A script is provided to test the module automatically:
 ./test.sh
 ```
 
-## License
-This project is licensed under the MIT License. See `LICENSE` for details.
-
